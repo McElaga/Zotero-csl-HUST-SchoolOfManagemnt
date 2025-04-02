@@ -55,7 +55,7 @@
   <!-- 主要责任者 -->
   <macro name="author">
     <names variable="author">
-      <name name-as-sort-order="all" initialize-with="." delimiter=", " sort-separator=", "/>
+      <name name-as-sort-order="all" initialize-with=". " delimiter=", " sort-separator=", "/>
       <substitute>
         <names variable="composer"/>
         <names variable="illustrator"/>
