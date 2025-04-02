@@ -498,11 +498,11 @@
       <key macro="issued-year"/>
     </sort>
     <layout locale="en">
-      <text variable="citation-number" prefix="    [" suffix="] "/>
+      <text variable="citation-number" prefix="[" suffix="] "/>
       <text macro="entry-layout" suffix="."/>
     </layout>
     <layout>
-      <text variable="citation-number" prefix="    [" suffix="] "/>
+      <text variable="citation-number" prefix="[" suffix="] "/>
       <text macro="entry-layout" suffix="."/>
     </layout>
   </bibliography>

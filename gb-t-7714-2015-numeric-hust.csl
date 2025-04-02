@@ -442,11 +442,11 @@
   </citation>
   <bibliography entry-spacing="0" et-al-min="4" et-al-use-first="3">
     <layout locale="en">
-      <text variable="citation-number" prefix="    [" suffix="] "/>
+      <text variable="citation-number" prefix="[" suffix="] "/>
       <text macro="entry-layout" suffix="."/>
     </layout>
     <layout>
-      <text variable="citation-number" prefix="    [" suffix="] "/>
+      <text variable="citation-number" prefix="[" suffix="] "/>
       <text macro="entry-layout" suffix="."/>
     </layout>
   </bibliography>
