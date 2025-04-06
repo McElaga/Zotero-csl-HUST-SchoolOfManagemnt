@@ -261,7 +261,7 @@
   <!-- 专著题名 -->
   <macro name="container-booklike">
     <group delimiter=". ">
-      <text macro="container-contributors"/>
+      <!-- <text macro="container-contributors"/> -->
       <group delimiter=", ">
         <choose>
           <if variable="container-title">
@@ -344,8 +344,10 @@
         <text macro="accessed-date"/>
       </if>
       <else-if type="book chapter paper-conference periodical thesis" variable="archive archive-place publisher publisher-place page" match="any">
-        <!-- 非纯电子资源的格式“出版地: 出版者, 出版年: 页码[引用日期]” -->
+        <!-- 非纯电子资源的格式“编者, 出版地: 出版者: 页码[引用日期]” -->
         <group delimiter=": ">
+        <group delimiter=", ">
+          <text macro="container-contributors"/>
           <group delimiter=": ">
             <choose>
               <if variable="publisher publisher-place" match="any">
@@ -359,7 +361,8 @@
               </else>
             </choose>
           </group>
-          <text variable="page"/>
+        </group>
+        <text variable="page"/>
         </group>
         <text macro="accessed-date"/>
       </else-if>
