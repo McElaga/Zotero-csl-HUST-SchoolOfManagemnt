@@ -268,7 +268,7 @@
             <!-- 优先使用专著或会议论文集的题名 -->
             <group delimiter=": ">
               <text variable="container-title"/>
-              <text macro="volume"/>
+              <!-- <text macro="volume"/> -->
             </group>
           </if>
           <else-if type="paper-conference">
