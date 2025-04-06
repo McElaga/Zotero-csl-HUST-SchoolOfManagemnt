@@ -250,7 +250,7 @@
   <!-- 专著主要责任者 -->
   <macro name="container-contributors">
     <names variable="editor">
-      <name/>
+      <name initialize-with=". "/>
       <substitute>
         <names variable="editorial-director"/>
         <names variable="collection-editor"/>
