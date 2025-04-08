@@ -192,7 +192,7 @@
         <text value="M"/>
       </else-if>
       <else-if type="article dataset">
-        <text value="DS"/>
+        <text value="DB"/>
       </else-if>
       <else-if type="map">
         <text value="CM"/>
