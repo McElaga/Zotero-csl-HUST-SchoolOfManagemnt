@@ -177,9 +177,8 @@
   <!-- 文献类型标识 -->
   <macro name="type-id">
     <choose>
-      <if type="article bill collection hearing legal_case legislation personal_communication regulation treaty" match="any">
+      <if type="bill collection hearing legal_case legislation personal_communication regulation treaty" match="any">
         <!-- 档案，A：分类保存以备查考的文件和材料，如人事档案、科技档案、法律法规、政府文件等。
-          article 为预印本，符合“科技档案”
         -->
         <text value="A"/>
       </if>
@@ -192,7 +191,7 @@
       <else-if type="book chapter classic entry-dictionary entry-encyclopedia" match="any">
         <text value="M"/>
       </else-if>
-      <else-if type="dataset">
+      <else-if type="article dataset">
         <text value="DS"/>
       </else-if>
       <else-if type="map">
@@ -227,7 +226,7 @@
   <!-- 文献载体标识 -->
   <macro name="medium-id">
     <choose>
-      <if type="dataset post post-weblog software webpage" match="any">
+      <if type="article dataset post post-weblog software webpage" match="any">
         <!-- 仅当纯电子资源显示 URL 时才出现“OL” -->
         <choose>
           <if variable="medium">
@@ -343,7 +342,7 @@
         <text macro="issued-date"/>
         <text macro="accessed-date"/>
       </if>
-      <else-if type="book chapter paper-conference periodical thesis" variable="archive archive-place publisher publisher-place page" match="any">
+      <else-if type="book chapter paper-conference periodical thesis" variable="archive archive-place publisher-place page" match="any">
         <!-- 非纯电子资源的格式“编者, 出版地: 出版者: 页码[引用日期]” -->
         <group delimiter=": ">
         <group delimiter=", ">
@@ -371,11 +370,11 @@
           原国标中，电子公告、无出版社的报告、法规等文献都可以作为“纯电子文献”。
         -->
         <choose>
-          <if type="dataset post post-weblog software webpage" match="any">
+          <if type="article dataset post post-weblog software webpage" match="any">
             <!-- 限制更少的类型作为“纯电子文献“ -->
             <choose>
               <if has-day="issued">
-                <text macro="issued-date" prefix="(" suffix=")"/>
+                <text macro="issued-date"/>
               </if>
             </choose>
             <text macro="accessed-date"/>
@@ -411,7 +410,7 @@
   <!-- 引用日期 -->
   <macro name="accessed-date">
     <choose>
-      <if type="dataset post post-weblog software webpage" match="any">
+      <if type="article dataset post post-weblog software webpage" match="any">
         <!-- 仅当纯电子资源显示 URL 时才出现引用日期 -->
         <choose>
           <if variable="URL">
@@ -424,7 +423,7 @@
   <!-- 获取和访问路径、数字对象唯一标识符 -->
   <macro name="access">
     <choose>
-      <if type="dataset post post-weblog software webpage" match="any">
+      <if type="article dataset post post-weblog software webpage" match="any">
         <!-- 仅纯电子资源显示 URL -->
         <text variable="URL"/>
       </if>
@@ -452,10 +451,13 @@
           <text macro="title"/>
           <text macro="publisher"/>
         </else-if>
-        <else-if type="dataset post post-weblog software webpage" match="any">
+        <else-if type="article dataset post post-weblog software webpage" match="any">
           <!-- 4.6 电子资源 -->
           <text macro="title"/>
+          <group delimiter=', '>
+          <text macro="access"/>
           <text macro="publisher"/>
+          </group>
         </else-if>
         <else-if type="chapter entry-dictionary entry-encyclopedia paper-conference" variable="container-title" match="any">
           <!-- 4.2 专著中的析出文献 -->
@@ -477,7 +479,7 @@
           <text macro="publisher"/>
         </else>
       </choose>
-      <text macro="access"/>
+      <!-- <text macro="access"/> -->
     </group>
   </macro>
   <citation et-al-min="2" et-al-use-first="1" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true" collapse="year">
