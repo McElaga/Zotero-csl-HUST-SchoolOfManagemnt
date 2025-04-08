@@ -203,7 +203,7 @@
   <!-- 专著主要责任者 -->
   <macro name="container-contributors">
     <names variable="editor">
-      <name initialize-with=". "/>
+      <name initialize-with=". " sort-separator=", "/>
       <substitute>
         <names variable="editorial-director"/>
         <names variable="collection-editor"/>
